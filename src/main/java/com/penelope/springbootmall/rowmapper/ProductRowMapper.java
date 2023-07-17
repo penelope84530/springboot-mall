@@ -1,5 +1,6 @@
 package com.penelope.springbootmall.rowmapper;
 
+import com.penelope.springbootmall.constant.ProductCategory;
 import com.penelope.springbootmall.model.Product;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -11,7 +12,7 @@ public class ProductRowMapper implements RowMapper<Product> {
         Product product = new Product();
         product.setProduct_id(resultSet.getInt("product_id"));
         product.setProduct_name(resultSet.getString("product_name"));
-        product.setCategory(resultSet.getString("category"));
+        product.setCategory(ProductCategory.valueOf(resultSet.getString("category")));
         product.setImage_url(resultSet.getString("image_url"));
         product.setPrice(resultSet.getInt("price"));
         product.setPrice(resultSet.getInt("stock"));
